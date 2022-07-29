@@ -3,8 +3,8 @@ const router = require('express').Router()
 router.get('/iecho', function (req, res) {
   const { text } = req.query
 
-  if (!text) {
-    res.status(400).json({ error: 'no text' })
+  if (!text || text.length === 0) {
+    return res.status(400).send({ error: 'no text' })
   }
 
   const textArray = text.split('')
@@ -21,7 +21,7 @@ router.get('/iecho', function (req, res) {
   } else {
     isPalindrome = false
   }
-  res.status(200).json({ text: reversedText, palindrome: isPalindrome })
+  return res.status(200).json({ text: reversedText, palindrome: isPalindrome })
 })
 
 module.exports = {

@@ -3,7 +3,7 @@ const router = require('express').Router()
 router.get('/iecho', function (req, res) {
   const { text } = req.query
 
-  if (!text || text.length === 0) {
+  if (!text || text.length === 0 || typeof text !== 'string') {
     return res.status(400).send({ error: 'no text' })
   }
 

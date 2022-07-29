@@ -17,8 +17,10 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require("./src/app.js");
+const server = require('./src/app.js')
 
-server.listen(3001, () => {
-  console.log("%s listening at 3001"); // eslint-disable-line no-console
-});
+const port = process.env.PORT || 80
+
+server.listen(port, () => {
+  console.log('%s listening at 3001') // eslint-disable-line no-console
+})
